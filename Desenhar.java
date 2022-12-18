@@ -3,35 +3,29 @@ package Computação_grafica;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Scanner;
-
 import javax.swing.JFrame;
 
 public class Desenhar extends JFrame {
 
-	
-
-
-
 	public Desenhar() {
 		 
-
+		/*Costrutor resposavel por gerar nosso ambiente de desenho*/
 		 Scanner input = new Scanner(System.in);
 		System.out.println("digite a largura da sua tela");
-		int larg = input.nextInt(); 
+		int larg = input.nextInt();
 		System.out.println("digite a altura da sua tela");
-		int alt =  input.nextInt(); 
-		setSize(alt,larg);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setVisible(true);
+		int alt =  input.nextInt();
+		setSize(alt,larg);/*Determina o tamanho da tela*/
+		setLocationRelativeTo(null);/*centraliza a tela*/
+		setDefaultCloseOperation(EXIT_ON_CLOSE);/*termina o programa ao ser fechado*/
+		setVisible(true);/*permite visualização*/
 		
 	}
 	
 	
 	public  void limpar_tela() {
 
-		Graphics g = getGraphics();
-		g.setColor( Color.WHITE );
+		Graphics g = getGraphics();/*pega a resolução definida pelo costrutor*/
 		g.clearRect(0, 0, 10000, 10000);
 		 
 		 }
@@ -39,7 +33,7 @@ public class Desenhar extends JFrame {
 	
 public  void equacao_geral() {
 
-	Graphics g = getGraphics();
+	Graphics g = getGraphics();/*pega a resolução definida pelo costrutor*/
 	 int x, x0, xf, y0, yf;
 	 float y, m;
 	 Scanner input = new Scanner(System.in);
@@ -57,8 +51,8 @@ public  void equacao_geral() {
 	 m = (yf - y0)/(xf - x0);
 	 for (x = x0; x <= xf; x++) {
 	 y = y0 + m * (x - x0);
-	 g.setColor( Color.BLACK );
-	 g.drawLine(x, Math.round(y), x, Math.round(y));
+	 g.setColor( Color.BLACK );/*Cor do desenho*/
+	 g.drawLine(x, Math.round(y), x, Math.round(y));/*desenha o pixel*/
 	 
 	 }
 	
@@ -66,7 +60,7 @@ public  void equacao_geral() {
 
 public void equacao_diferecial(){
 	
-	Graphics g = getGraphics();
+	Graphics g = getGraphics();/*pega a resolução definida pelo costrutor*/
 	int x, x0, xf, y0, yf;
 	float y, m;
 	Scanner input = new Scanner(System.in);
@@ -84,8 +78,8 @@ public void equacao_diferecial(){
 	 m = (yf - y0)/(xf - x0);
 	 for (x = x0; x <= xf; x++) {
 	 y = y + m ;
-	 g.setColor( Color.BLACK );
-	 g.drawLine(x, Math.round(y), x, Math.round(y));
+	 g.setColor( Color.BLACK );/*cor do desenho*/
+	 g.drawLine(x, Math.round(y), x, Math.round(y));/*desenha o pixel*/
 	 }
 }	
 	
@@ -118,7 +112,8 @@ public void BRESENHAN (){
 			 p=(int) (p+c2);
 			 y=y+1;
 		 }
-	 g.drawLine(x, y, x, y);
+	 g.setColor( Color.BLACK );/*cor do desenho*/
+	 g.drawLine(x, y, x, y);/*desenha o pixel*/
 	 }
 }
 
@@ -126,44 +121,44 @@ public void BRESENHAN (){
 
 	public static void main(String[] args) {
 		int opcao;
+		
+		/*inicializa um objeto Desenhar*/
 		Desenhar d = new Desenhar();
 		Scanner input = new Scanner(System.in);		
-		System.out.printf("[0] LIMPAR TELA \n" + "[1] ALGORITMO RETA: EQUACAO GERAL \n" + 
-"[2] ALGORITMO RETA: EQUACAO DIFERENCIAL \n"
-+ "[3] ALGORITMO RETA: BRESENHAN \n" +
-"[4] SAIR \n");
-		
-		
-		
 		
 		while(true) {
+			/*Mostra o menu ao usuário*/
+			System.out.printf("[0] LIMPAR TELA \n" + 
+			"[1] ALGORITMO RETA: EQUACAO GERAL \n" + 
+			"[2] ALGORITMO RETA: EQUACAO DIFERENCIAL \n"
+			+ "[3] ALGORITMO RETA: BRESENHAN \n" +
+			"[4] SAIR \n");
 			
+			/*recebe a opção do usuário */
 			opcao = input.nextInt();
+			
 			if (opcao == 0) {
-				System.out.println(" opcao 0"); 
+				System.out.println(" Limpar tela "); 
 				d.limpar_tela();
 			}
 			if (opcao == 1) {
 				
-				System.out.println(" opcao 1");
+				System.out.println(" Equação geral ");
 				d.equacao_geral();
 				
 			}
 			if (opcao == 2) {
-				System.out.println(" opcao 2");
+				System.out.println(" Equação diferencial ");
 				d.equacao_diferecial();
 			}
 			if (opcao == 3) {
-				System.out.println(" opcao 3");
+				System.out.println(" Bresenhan ");
 				d.BRESENHAN();
 			}
 			
 			if (opcao == 4) {
 				 System.exit(0);
 			}
-		}
-		
-		
-		
+		}	
 	}
 }

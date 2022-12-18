@@ -26,7 +26,8 @@ public class Desenhar extends JFrame {
 	public  void limpar_tela() {
 
 		Graphics g = getGraphics();/*pega a resolução definida pelo costrutor*/
-		g.clearRect(0, 0, 10000, 10000);
+		g.clearRect(0, 0, 10000, 10000);/*função resevada da bliblioteca 
+										que limpa a tela*/
 		 
 		 }
 	

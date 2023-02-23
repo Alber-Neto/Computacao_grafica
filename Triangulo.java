@@ -126,14 +126,10 @@ public void Escala_fixa(int x0,int xf, int y0,int yf,Triangulo t,int ce){
 	Graphics g = getGraphics();/*pega a resolução definida pelo costrutor*/
 	int auxx0,auxxf,auxy0,auxyf,alt,larg,auxce;
 	
-	auxx0=x0*ce;
-	auxxf=xf*ce;
-	auxy0=y0*ce;
-	auxyf=yf*ce;
-	auxx0=auxx0+55;
-	auxxf=auxxf+55;
-	auxy0=auxy0+65;
-	auxyf=auxyf+65;
+	auxx0=x0*ce+55*(1-ce);
+	auxxf=xf*ce+55*(1-ce);
+	auxy0=y0*ce+65*(1-ce);
+	auxyf=yf*ce+65*(1-ce);
 	alt=t.getAlt();
 	larg=t.getLarg();
 	
@@ -145,14 +141,10 @@ public void Rotacao_fixa(int x0,int xf, int y0,int yf,Triangulo t,double angulo)
 	Graphics g = getGraphics();/*pega a resolução definida pelo costrutor*/
 	int auxx0,auxxf,auxy0,auxyf,alt,larg;
 	
-	auxx0=(int) (x0*Math.cos(angulo)-y0*Math.sin(angulo));
-	auxy0=(int)(x0*Math.sin(angulo)+y0*Math.cos(angulo));
-	auxxf=(int) (xf*Math.cos(angulo)-yf*Math.sin(angulo));
-	auxyf=(int)(xf*Math.sin(angulo)+yf*Math.cos(angulo));
-	auxx0=auxx0+55;
-	auxxf=auxxf+55;
-	auxy0=auxy0+65;
-	auxyf=auxyf+65;
+	auxx0=(int) (x0*Math.cos(angulo)-y0*Math.sin(angulo)+55*(1-Math.cos(angulo))+65*Math.sin(angulo));
+	auxy0=(int)(x0*Math.sin(angulo)+y0*Math.cos(angulo)+65*(1-Math.cos(angulo))+55*Math.sin(angulo));
+	auxxf=(int) (xf*Math.cos(angulo)-yf*Math.sin(angulo)+55*(1-Math.cos(angulo))+65*Math.sin(angulo));
+	auxyf=(int)(xf*Math.sin(angulo)+yf*Math.cos(angulo)+65*(1-Math.cos(angulo))+55*Math.sin(angulo));
 	alt=t.getAlt();
 	larg=t.getLarg();
 	

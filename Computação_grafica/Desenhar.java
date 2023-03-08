@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 public class Desenhar extends JFrame {
 	
 	int alt,larg;
+	
 
 	public Desenhar(int alt,int larg) {
 		 
@@ -201,7 +202,7 @@ public void questao1_4(){
 		 c1=2*dy;
 		 c2=2*(dy-dx);
 		 y=y0;
-		 for (x = x0; x <= xf; x=x+2) {
+		 for (x = x0; x <= xf; x=x+1) {
 			 if(p<0) {
 				 p=(int) (p+c1);
 			 }
@@ -237,13 +238,13 @@ public void questao1_5(int alt,int larg){
 	 yf=larg;
 	  	
 		 for (y = y0; y <= yf; y+=10) {
-			 for(x=x0;x<=xf;x+=2) {
+			 for(x=x0;x<=xf;x+=1) {
 			 g.setColor( Color.BLACK );/*cor do desenho*/
 			 g.drawLine(x, Math.round(y), x, Math.round(y));/*desenha o pixel*/
 			 }
 			 }
 		 for (x = x0; x <= xf; x+=10) {
-			 for(y=y0;y<=yf;y+=2) {
+			 for(y=y0;y<=yf;y+=1) {
 			 g.setColor( Color.BLACK );/*cor do desenho*/
 			 g.drawLine(x, Math.round(y), x, Math.round(y));/*desenha o pixel*/
 			 }
